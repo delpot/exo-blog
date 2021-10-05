@@ -1,5 +1,8 @@
 <?php
 
+require_once(ROOT . '/Model/Article.php');
+require_once(ROOT . '/Model/Database/MySQLDatabaseConnection.php');
+
 class ArticleRepository
 {
 
@@ -53,6 +56,24 @@ class ArticleRepository
         }
 
         return $articles;
+    }
+
+    public function find($id): ?Article
+    {
+        $sql = "SELECT * FROM article where id=:id";
+
+        $stmt = $this->dbConnection->prepare($sql);
+        $stmt->execute(['id'=>$id]);
+        $articleDb = $stmt->fetch();
+        
+        $articleEntity = new Article();
+        $articleEntity->setId($articleDb['id']);
+        $articleEntity->setTitle($articleDb['title']);
+        $articleEntity->setStatus($articleDb['status']);
+        $articleEntity->setContent($articleDb['content']);
+        $articleEntity->setCreatedAt(new \DateTime($articleDb['created_at']));
+
+        return $articleEntity;
     }
 
 }

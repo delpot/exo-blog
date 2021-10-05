@@ -11,7 +11,24 @@ require_once(ROOT . '/Model/Repository/ArticleRepository.php');
 $articleRepository = new ArticleRepository();
 $articles = $articleRepository->findLasts(3);
 
-require_once('../View/HomeView.php');
+require_once(ROOT . '/View/HomeView.php');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

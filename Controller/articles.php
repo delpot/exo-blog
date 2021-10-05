@@ -9,6 +9,6 @@ require_once(ROOT . '/Factory/ArticleFactory.php');
 require_once(ROOT . '/Model/Repository/ArticleRepository.php');
 
 $articleRepository = new ArticleRepository();
-$articles = $articleRepository->findAll();
+$articlesView = $articleRepository->findAll();
 
-require_once('../View/articlesView.php');
+require_once(ROOT . '/View/articlesView.php');
