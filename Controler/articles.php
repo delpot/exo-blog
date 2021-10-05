@@ -7,7 +7,8 @@ ini_set('display_errors', 'on');
 
 require_once('../Model/EntityManager.php');
 require_once('../Factory/ArticleFactory.php');
-require_once('../View/ArticleView.php');
 
 $articleFactory = new ArticleFactory();
-$articlesView = $articlesFactory->createArticles(15);
+$articlesView = $articleFactory->createArticles(15);
+
+require_once('../View/articlesView.php');

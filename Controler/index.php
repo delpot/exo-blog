@@ -7,10 +7,19 @@ ini_set('display_errors', 'on');
 
 require_once('../Model/EntityManager.php');
 require_once('../Factory/ArticleFactory.php');
-require_once('../View/HomeView.php');
 
 $articleFactory = new ArticleFactory();
 $articles = $articleFactory->createArticles(3);
+
+require_once('../View/HomeView.php');
+
+
+
+
+
+
+
+
 
 // $nombre = 10;
 // $articles = $articleFactory->createArticles($nombre);

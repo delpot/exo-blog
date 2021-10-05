@@ -1,28 +1,18 @@
 <?php
 
 require_once("Article.php");
-
+require_once("Database/MySQLDatabaseConnection.php");
 
 class EntityManager
 {
 
-    private ?PDO $dbConnexion;
+    private ?PDO $dbConnection;
     
     public function __construct()
     {
-        $host = 'localhost';
-        $username = 'root';
-        $password = '';
-        $db = '3wa_blog';
+        $MySQLDatabaseConnection = new MySQLDatabaseConnection();
+        $this->dbConnection = $MySQLDatabaseConnection->connect();
 
-        try {
-            $conn = new PDO("mysql:host=$host;dbname=$db", $username, $password);
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->dbConnexion = $conn;
-        } catch (PDOException $e) {
-            echo "Erreur : " . $e->getMessage();
-            return null;
-        }
     }
 
     public function persistArticle(Article $article) : bool
@@ -36,7 +26,7 @@ class EntityManager
                 )
         ";
 
-        $req = $this->dbConnexion->prepare($sql);
+        $req = $this->dbConnection->prepare($sql);
 
         return $req->execute(array(
             ":title" => $article->getTitle(),
@@ -47,6 +37,11 @@ class EntityManager
 
     }
 
+
+
+
+
+    
     // public function recupArticles() : object
     // {
     //     $sql = "SELECT * FROM article";

@@ -6,30 +6,30 @@ require_once('../Model/EntityManager.php');
 class ArticleFactory
 {
     
-    public function createArticle(string $title, string $content): Article
-    {
-        //$entityManager = new EntityManager();
-
-        $article = new Article();
-        $article->setTitle($title);
-        $article->setContent($content);
-
-        //$entityManager->persistArticle($article);
-
-        return $article;
-    }
-
-    // public function createArticles(int $number): array
+    // public function createArticle(string $title, string $content): Article
     // {
-    //     $Articles = array();
+    //     //$entityManager = new EntityManager();
 
-    //     for($num=0; $num<=$number; $num++) {
-    //         $article = self::createArticle("Voici un titre", "Voici un contenu");
-    //         array_push($Articles, $article);
-    //     }
+    //     $article = new Article();
+    //     $article->setTitle($title);
+    //     $article->setContent($content);
 
-    //     return $Articles;
+    //     //$entityManager->persistArticle($article);
+
+    //     return $article;
     // }
+
+    // // public function createArticles(int $number): array
+    // // {
+    // //     $Articles = array();
+
+    // //     for($num=0; $num<=$number; $num++) {
+    // //         $article = self::createArticle("Voici un titre", "Voici un contenu");
+    // //         array_push($Articles, $article);
+    // //     }
+
+    // //     return $Articles;
+    // // }
 
     public function createArticle(string $title, string $content): Article
     {
