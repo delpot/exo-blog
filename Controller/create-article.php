@@ -9,11 +9,10 @@ require_once('../Model/EntityManager.php');
 require_once('../Factory/ArticleFactory.php');
 require_once('../View/create-articleView.php');
 
-if (!empty($_POST['title']) && !empty($_POST['content'])) 
-{
-$articleFactory = new ArticleFactory();
-$article = $articleFactory->createArticle($_POST["title"], $_POST["content"]);
+if (!empty($_POST['title']) && !empty($_POST['content'])) {
+    $articleFactory = new ArticleFactory();
+    $article = $articleFactory->createArticle($_POST["title"], $_POST["content"]);
 
-$entityManager = new EntityManager();
-$entityManager->persistArticle($article);
+    $entityManager = new EntityManager();
+    $entityManager->persistArticle($article);
 }
