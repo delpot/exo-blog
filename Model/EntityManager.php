@@ -1,7 +1,7 @@
 <?php
 
-require_once(ROOT . "Article.php");
-require_once(ROOT . "Database/MySQLDatabaseConnection.php");
+require_once(ROOT . "/Model/Article.php");
+require_once(ROOT . "/Model/Database/MySQLDatabaseConnection.php");
 
 class EntityManager
 {
