@@ -16,7 +16,7 @@
         <label for="content">Contenu :</label>
         <br>
         <textarea name="content"></textarea>
-        <br>
+        <br><br>
         <input type="submit" value="Envoyer">
     </form>
 
