@@ -9,7 +9,7 @@ require_once(ROOT . '/Factory/ArticleFactory.php');
 require_once(ROOT . '/Model/Repository/ArticleRepository.php');
 
 $articleRepository = new ArticleRepository();
-$articles = $articleRepository->findAll();
+$articles = $articleRepository->findLasts(3);
 
 require_once('../View/HomeView.php');
 

@@ -18,15 +18,6 @@ class Article
         $this->status = self::STATUS_DRAFT;
     }
 
-    // public function __construct(int $id, string $title, string $content )
-    // {
-    //     $this->id = $id;
-    //     $this->title = $title;
-    //     $this->content = $content;
-    //     $this->createdAt = new \DateTime('NOW');
-    //     $this->status = self::STATUS_DRAFT;
-    // }
-
     public function getId(): int
     {
         return $this->id;

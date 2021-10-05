@@ -37,30 +37,5 @@ class EntityManager
 
     }
 
-
-
-
-
-
-    // public function recupArticles() : object
-    // {
-    //     $sql = "SELECT * FROM article";
-
-    //     $result = $this->dbConnexion->query($sql);
-    //     return $result;
-    //     $listArticles = [];
-    //     foreach  ($result as $row) {        
-    //         $article = new Article();
-    //         $article->setId($row['id']);
-    //         $article->setTitle($row['title']);
-    //         $article->setContent($row['content']);
-    //         $article->setStatus($row['status']);
-    //         //$article->setCreatedAt($row['created-at']);
-    //         array_push($listArticles, $article);
-    //     }
-        
-    //     return $listArticles;
-    // }
-
 }
 
