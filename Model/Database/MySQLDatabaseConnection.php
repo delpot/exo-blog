@@ -1,6 +1,6 @@
 <?php
 
-require_once("DatabaseConnectionInterface.php");
+require_once(ROOT . "DatabaseConnectionInterface.php");
 
 class MySQLDatabaseConnection implements DatabaseConnectionInterface
 {

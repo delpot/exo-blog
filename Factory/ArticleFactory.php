@@ -1,7 +1,7 @@
 <?php
 
-require_once('../Model/Article.php');
-require_once('../Model/EntityManager.php');
+require_once(ROOT . '/Model/Article.php');
+require_once(ROOT . '../Model/EntityManager.php');
 
 class ArticleFactory
 {
