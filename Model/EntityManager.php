@@ -10,8 +10,8 @@ class EntityManager
     
     public function __construct()
     {
-        $MySQLDatabaseConnection = new MySQLDatabaseConnection();
-        $this->dbConnection = $MySQLDatabaseConnection->connect();
+        $mySQLDatabaseConnection = new MySQLDatabaseConnection();
+        $this->dbConnection = $mySQLDatabaseConnection->connect();
 
     }
 
@@ -41,7 +41,7 @@ class EntityManager
 
 
 
-    
+
     // public function recupArticles() : object
     // {
     //     $sql = "SELECT * FROM article";
