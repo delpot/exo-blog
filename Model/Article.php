@@ -12,16 +12,29 @@ class Article
     private string $status;
     private \DateTime $createdAt;
 
-
     public function __construct()
     {
         $this->createdAt = new \DateTime('NOW');
         $this->status = self::STATUS_DRAFT;
     }
 
+    // public function __construct(int $id, string $title, string $content )
+    // {
+    //     $this->id = $id;
+    //     $this->title = $title;
+    //     $this->content = $content;
+    //     $this->createdAt = new \DateTime('NOW');
+    //     $this->status = self::STATUS_DRAFT;
+    // }
+
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     public function getTitle(): string
@@ -63,5 +76,4 @@ class Article
     {
         $this->createdAt = $createdAt;
     }
-
 }
