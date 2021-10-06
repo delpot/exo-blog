@@ -1,6 +1,5 @@
 <?php
 
-require_once(ROOT . "/Model/Entity/Article.php");
 require_once(ROOT . "/Model/Database/MySQLDatabaseConnection.php");
 
 class EntityManager
@@ -44,17 +43,17 @@ class EntityManager
                         :title, 
                         :color, 
                         :status,
-                        :created_at
+                        :created__at
                 )
         ";
 
         $req = $this->dbConnection->prepare($sql);
 
         return $req->execute(array(
-            "title" => $article->getTitle(),
-            "color" => $article->getColor(),
-            "status" => $article->getStatus(),
-            "created_at" => $article->getCreatedAt()->format('Y-m-d H:i:s')
+            "title" => $category->getTitle(),
+            "color" => $category->getColor(),
+            "status" => $category->getStatus(),
+            "created__at" => $category->getCreatedAt()->format('Y-m-d H:i:s')
         ));
 
     }

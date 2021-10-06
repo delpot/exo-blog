@@ -13,9 +13,9 @@
         <br>
         <input type="text" id="title" name="title"/>
         <br><br>
-        <label for="content">Color :</label>
+        <label for="color">Color :</label>
         <br>
-        <textarea name="content"></textarea>
+        <textarea name="color"></textarea>
         <br><br>
         <input type="submit" value="Envoyer">
     </form>

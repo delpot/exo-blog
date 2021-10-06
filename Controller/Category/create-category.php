@@ -9,7 +9,6 @@ require_once(ROOT . '/Model/Factory/CategoryFactory.php');
 require_once(ROOT . '/View/Category/create-categoryView.php');
 
 if (!empty($_POST['title']) && !empty($_POST['color'])) {
-    
     $categoryFactory = new CategoryFactory();
     $category = $categoryFactory->createCategory($_POST["title"], $_POST["color"]);
 
