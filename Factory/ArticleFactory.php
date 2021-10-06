@@ -37,13 +37,13 @@ class ArticleFactory
         return $articleEntity;
     }
 
-    public function createArticlesFromDb(int $nbArticles): array
+    public function createArticlesFromDb(array $articleFromDbArticles): array
     {
         $articles = [];
 
-        for ($i = 1; $i <= $nbArticles; $i++) {
-            $article = $this->createArticleFromDb("Article " . $i, "C'est un article");
-            $articles[] = $article;
+        foreach ($articlesFromDb as $articleDb) {
+            $articleEntity = $this->createArticleFromDb($articleDb);
+            array_push($articles, $articleEntity);
         }
 
         return $articles;

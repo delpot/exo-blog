@@ -21,15 +21,10 @@ class ArticleRepository
         $stmt->execute();
         $articlesDb = $stmt->fetchAll();
 
-        $articles = [];
-
-        foreach ($articlesDb as $articleDb) {
-            $articleFactory = new ArticleFactory();
-            $articleEntity = $articleFactory->createArticleFromDb($articleDb);
-            array_push($articles, $articleEntity);
-        }
-
-        return $articles;
+        $articleFactory = new ArticleFactory();
+        $articleEntity = $articleFactory->createArticlesFromDb($articlesDb);
+        
+        return $articleEntity;
     }
 
     public function findLasts($nbArticles): array
@@ -40,15 +35,10 @@ class ArticleRepository
         $stmt->execute();
         $articlesDb = $stmt->fetchAll();
 
-        $articles = [];
+        $articleFactory = new ArticleFactory();
+        $articleEntity = $articleFactory->createArticlesFromDb($articlesDb);
 
-        foreach ($articlesDb as $articleDb) {
-            $articleFactory = new ArticleFactory();
-            $articleEntity = $articleFactory->createArticleFromDb($articleDb);
-            array_push($articles, $articleEntity);
-        }
-
-        return $articles;
+        return $articleEntity;
     }
 
     public function find($id): ?Article
