@@ -15,4 +15,6 @@ if (!empty($_POST['title']) && !empty($_POST['color'])) {
 
     $entityManager = new EntityManager();
     $entityManager->persistCategory($category);
+
+    echo "Catégorie créée!";
 }

@@ -18,5 +18,8 @@
     }
     ?>
     
+    <p><a href="create-article.php"> Créer un nouvel article</a></p>
+    <p><a href="articles.php"> Voir tous les articles</a></p>
+
 </body>
 </html>

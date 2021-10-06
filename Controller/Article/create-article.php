@@ -15,4 +15,6 @@ if (!empty($_POST['title']) && !empty($_POST['content'])) {
 
     $entityManager = new EntityManager();
     $entityManager->persistArticle($article);
+
+    echo "Article créé!";
 }

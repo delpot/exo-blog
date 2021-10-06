@@ -48,7 +48,7 @@ class CategoryRepository
 
         $stmt = $this->dbConnection->prepare($sql);
         $stmt->execute(['id'=>$id]);
-        $categoryDb = $stmt->fetch();
+        $categoryDb = $stmt->fetch(); 
 
         $categoryFactory = new CategoryFactory();
         $categoryEntity = $categoryFactory->createCategoryFromDb($categoryDb);

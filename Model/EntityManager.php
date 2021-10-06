@@ -59,5 +59,25 @@ class EntityManager
 
     }
 
+    public function persistUser(User $user) : bool
+    {
+        $sql = "INSERT INTO user (username, password, email)
+                VALUES (
+                        :username, 
+                        :password, 
+                        :email
+                )
+        ";
+
+        $req = $this->dbConnection->prepare($sql);
+
+        return $req->execute(array(
+            "username" => $user->getUsername(),
+            "password" => $user->getPassword(),
+            "email" => $user->getEmail()
+        ));
+
+    }
+
 }
 

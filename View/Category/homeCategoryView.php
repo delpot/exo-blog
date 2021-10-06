@@ -17,6 +17,10 @@
         echo "<p>" . $category->getColor() . "</p>";
     }
     ?>
+
+    <p><a href="create-category.php"> Créer une nouvelle catégorie</a></p>
+    <p><a href="categories.php"> Voir toutes les catégories</a></p>
+
     
 </body>
 </html>
