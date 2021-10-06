@@ -9,13 +9,16 @@
 <body>
 
     <?php
+    
     /**
      * @var Article $article
      */
     foreach ($articlesView as $article) {
         echo "<h2>" . $article->getTitle() . "</h2>";
-        echo "<p>" . $article->getContent() . "</p>";
+        echo '<a href="./article.php?id=' . $article->getId() . '">Voir l\'article</a><br>';
+        echo '<a href="./delete-article.php?id=' . $article->getId() . '"> Supprimer l\'article</a><br>';
     }
+    
     ?>
     
 </body>

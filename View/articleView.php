@@ -8,20 +8,15 @@
 </head>
 <body>
 
-    <main>
-    <h1>
-        <?php echo $articleView->getTitle(); ?>
-    </h1>
-    <p>Créé le : 
-        <?php echo $articleView->getCreatedAt()->format('y-m-d'); ?>
-    </p>
-    <p>
-        <?php echo $articleView->getContent(); ?>
-    </p>
-    <p>Statut : 
-        <?php echo $articleView->getStatus(); ?>
-    </p>
-    </main>
+    <?php
+
+        echo "<h2>" . $articleId->getTitle() . "</h2>";
+        echo "<p>" . $articleId->getStatus() . "</p>";
+        echo "<p>" . $articleId->getContent() . "</p>";
+        echo "<p>" . $articleId->getCreatedAt()->format('Y-m-d H:i:s') . "</p>";
+        echo('<p><a href="./delete-article.php?id=' . $articleId->getId() . '"> Supprimer l\'article </a></p>');
+    
+    ?>
     
 </body>
 </html>

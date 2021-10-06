@@ -9,6 +9,7 @@ require_once(ROOT . '/Factory/ArticleFactory.php');
 require_once(ROOT . '/View/create-articleView.php');
 
 if (!empty($_POST['title']) && !empty($_POST['content'])) {
+    
     $articleFactory = new ArticleFactory();
     $article = $articleFactory->createArticle($_POST["title"], $_POST["content"]);
 

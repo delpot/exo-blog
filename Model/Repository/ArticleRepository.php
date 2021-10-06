@@ -1,7 +1,7 @@
 <?php
 
-require_once(ROOT . '/Model/Article.php');
-require_once(ROOT . '/Model/Database/MySQLDatabaseConnection.php');
+// require_once(ROOT . '/Model/Article.php');
+// require_once(ROOT . '/Model/Database/MySQLDatabaseConnection.php');
 
 class ArticleRepository
 {
@@ -26,6 +26,7 @@ class ArticleRepository
 
         foreach ($articlesDb as $article) {
             $articleEntity = new Article();
+            $articleEntity->setId($article['id']);
             $articleEntity->setTitle($article['title']);
             $articleEntity->setStatus($article['status']);
             $articleEntity->setContent($article['content']);
@@ -48,6 +49,7 @@ class ArticleRepository
 
         foreach ($articlesDb as $article) {
             $articleEntity = new Article();
+            $articleEntity->setId($article['id']);
             $articleEntity->setTitle($article['title']);
             $articleEntity->setStatus($article['status']);
             $articleEntity->setContent($article['content']);
@@ -65,7 +67,7 @@ class ArticleRepository
         $stmt = $this->dbConnection->prepare($sql);
         $stmt->execute(['id'=>$id]);
         $articleDb = $stmt->fetch();
-        
+
         $articleEntity = new Article();
         $articleEntity->setId($articleDb['id']);
         $articleEntity->setTitle($articleDb['title']);
@@ -74,6 +76,14 @@ class ArticleRepository
         $articleEntity->setCreatedAt(new \DateTime($articleDb['created_at']));
 
         return $articleEntity;
+    }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM article where id=:id";
+
+        $stmt = $this->dbConnection->prepare($sql);
+        $stmt->execute(['id'=>$id]);
     }
 
 }
