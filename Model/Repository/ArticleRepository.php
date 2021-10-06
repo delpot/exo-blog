@@ -1,7 +1,6 @@
 <?php
 
-// require_once(ROOT . '/Model/Article.php');
-// require_once(ROOT . '/Model/Database/MySQLDatabaseConnection.php');
+require_once(ROOT . './Factory/ArticleFactory.php');
 
 class ArticleRepository
 {
@@ -24,13 +23,9 @@ class ArticleRepository
 
         $articles = [];
 
-        foreach ($articlesDb as $article) {
-            $articleEntity = new Article();
-            $articleEntity->setId($article['id']);
-            $articleEntity->setTitle($article['title']);
-            $articleEntity->setStatus($article['status']);
-            $articleEntity->setContent($article['content']);
-            $articleEntity->setCreatedAt(new \DateTime($article['created_at']));
+        foreach ($articlesDb as $articleDb) {
+            $articleFactory = new ArticleFactory();
+            $articleEntity = $articleFactory->createArticleFromDb($articleDb);
             array_push($articles, $articleEntity);
         }
 
@@ -47,13 +42,9 @@ class ArticleRepository
 
         $articles = [];
 
-        foreach ($articlesDb as $article) {
-            $articleEntity = new Article();
-            $articleEntity->setId($article['id']);
-            $articleEntity->setTitle($article['title']);
-            $articleEntity->setStatus($article['status']);
-            $articleEntity->setContent($article['content']);
-            $articleEntity->setCreatedAt(new \DateTime($article['created_at']));
+        foreach ($articlesDb as $articleDb) {
+            $articleFactory = new ArticleFactory();
+            $articleEntity = $articleFactory->createArticleFromDb($articleDb);
             array_push($articles, $articleEntity);
         }
 
@@ -68,12 +59,8 @@ class ArticleRepository
         $stmt->execute(['id'=>$id]);
         $articleDb = $stmt->fetch();
 
-        $articleEntity = new Article();
-        $articleEntity->setId($articleDb['id']);
-        $articleEntity->setTitle($articleDb['title']);
-        $articleEntity->setStatus($articleDb['status']);
-        $articleEntity->setContent($articleDb['content']);
-        $articleEntity->setCreatedAt(new \DateTime($articleDb['created_at']));
+        $articleFactory = new ArticleFactory();
+        $articleEntity = $articleFactory->createArticleFromDb($articleDb);
 
         return $articleEntity;
     }
