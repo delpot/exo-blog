@@ -1,16 +1,15 @@
 <?php
 
-class Article
+abstract class Publishable
 {
     public const STATUS_DRAFT = "draft";
     public const STATUS_ARCHIVED = "archived";
     public const STATUS_PUBLISHED = "published";
 
-    private int $id;
-    private string $title;
-    private string $content;
-    private string $status;
-    private \DateTime $createdAt;
+    protected int $id;
+    protected string $title;
+    protected string $status;
+    protected \DateTime $createdAt;
 
     public function __construct()
     {
@@ -36,16 +35,6 @@ class Article
     public function setTitle(string $title): void
     {
         $this->title = $title;
-    }
-
-    public function getContent(): string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): void
-    {
-        $this->content = $content;
     }
 
     public function getStatus(): string

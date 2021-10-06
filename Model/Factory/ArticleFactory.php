@@ -1,6 +1,6 @@
 <?php
 
-require_once(ROOT . '/Model/Article.php');
+require_once(ROOT . '/Model/Entity/Article.php');
 
 class ArticleFactory
 {
@@ -12,18 +12,6 @@ class ArticleFactory
 
         return $article;
     }
-
-    // public function createArticles(int $nbArticles): array
-    // {
-    //     $articles = [];
-
-    //     for ($i = 1; $i <= $nbArticles; $i++) {
-    //         $article = $this->createArticle("Article " . $i, "C'est un article");
-    //         $articles[] = $article;
-    //     }
-
-    //     return $articles;
-    // }
 
     public function createArticleFromDb(array $articleFromDb): Article
     {
@@ -41,7 +29,7 @@ class ArticleFactory
     {
         $articles = [];
 
-        foreach ($articlesFromDb as $articleDb) {
+        foreach ($articleFromDbArticles as $articleDb) {
             $articleEntity = $this->createArticleFromDb($articleDb);
             array_push($articles, $articleEntity);
         }
