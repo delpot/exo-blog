@@ -37,5 +37,27 @@ class EntityManager
 
     }
 
+    public function persistCategory(Category $category) : bool
+    {
+        $sql = "INSERT INTO category (title, color, status, created_at)
+                VALUES (
+                        :title, 
+                        :color, 
+                        :status,
+                        :created_at
+                )
+        ";
+
+        $req = $this->dbConnection->prepare($sql);
+
+        return $req->execute(array(
+            "title" => $article->getTitle(),
+            "color" => $article->getColor(),
+            "status" => $article->getStatus(),
+            "created_at" => $article->getCreatedAt()->format('Y-m-d H:i:s')
+        ));
+
+    }
+
 }
 
