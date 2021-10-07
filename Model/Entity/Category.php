@@ -1,7 +1,7 @@
 <?php
 
 require_once(ROOT . "/Model/Entity/Publishable.php");
-require_once(ROOT . "/Model/Repository/EntityInterface.php");
+require_once(ROOT . "/Model/Entity/EntityInterface.php");
 
 class Category extends Publishable implements EntityInterface
 {
