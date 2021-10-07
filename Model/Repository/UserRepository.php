@@ -3,7 +3,7 @@
 require_once(ROOT . "/Model/Database/MySQLDatabaseConnection.php");
 require_once(ROOT . './Model/Factory/UserFactory.php');
 
-class CategoryRepository
+class UserRepository
 {
 
     private ?PDO $dbConnection;
