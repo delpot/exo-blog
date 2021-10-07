@@ -15,4 +15,9 @@ class Category extends Publishable
     {
         $this->color = $color;
     }
+
+    public function getTableName(): string
+    {
+        return "category";
+    }
 }

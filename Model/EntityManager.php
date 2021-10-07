@@ -78,5 +78,13 @@ class EntityManager
 
     }
 
+    public function delete($entity) : void
+    {
+        $sql = "DELETE FROM ". $entity->getTableName() ." where id=:id";
+
+        $stmt = $this->dbConnection->prepare($sql);
+        $stmt->execute(['id'=>$entity->getId()]);
+    }
+
 }
 

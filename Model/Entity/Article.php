@@ -15,4 +15,9 @@ class Article extends Publishable
     {
         $this->content = $content;
     }
+
+    public function getTableName(): string
+    {
+        return "article";
+    }
 }
