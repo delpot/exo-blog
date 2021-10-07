@@ -13,14 +13,9 @@
      * @var Category $category
      */
     foreach ($categories as $category) {
-        echo "<h2>" . $category->getTitle() . "</h2>";
-        echo "<p>" . $category->getColor() . "</p>";
+        echo "<h3><font color=". $category->getColor() .">" . $category->getTitle() . "</font></h3>";
     }
     ?>
-
-    <p><a href="create-category.php"> Créer une nouvelle catégorie</a></p>
-    <p><a href="categories.php"> Voir toutes les catégories</a></p>
-
-    
+   
 </body>
 </html>

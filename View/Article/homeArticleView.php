@@ -13,13 +13,10 @@
      * @var Article $article
      */
     foreach ($articles as $article) {
-        echo "<h2>" . $article->getTitle() . "</h2>";
+        echo "<h3>" . $article->getTitle() . "</h3>";
         echo "<p>" . $article->getContent() . "</p>";
     }
     ?>
-    
-    <p><a href="create-article.php"> Créer un nouvel article</a></p>
-    <p><a href="articles.php"> Voir tous les articles</a></p>
 
 </body>
 </html>

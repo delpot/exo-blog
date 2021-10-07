@@ -43,7 +43,7 @@ class EntityManager
                         :title, 
                         :color, 
                         :status,
-                        :created__at
+                        :created_at
                 )
         ";
 
@@ -53,7 +53,7 @@ class EntityManager
             "title" => $category->getTitle(),
             "color" => $category->getColor(),
             "status" => $category->getStatus(),
-            "created__at" => $category->getCreatedAt()->format('Y-m-d H:i:s')
+            "created_at" => $category->getCreatedAt()->format('Y-m-d H:i:s')
         ));
 
     }

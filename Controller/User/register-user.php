@@ -12,7 +12,7 @@ if (!empty($_POST['username']) &&
     !empty($_POST['email'])) {
     
     $userFactory = new UserFactory();
-    $user = $userFactory->createUser($_POST["username"], $_POST["email"], $_POST["password"]);
+    $user = $userFactory->createUser($_POST["username"], $_POST["password"], $_POST["email"]);
 
     $entityManager = new EntityManager();
     $entityManager->persistUser($user);
