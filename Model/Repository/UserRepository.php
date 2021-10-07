@@ -18,7 +18,7 @@ class UserRepository
         $sql = "SELECT * FROM user where username=:username";
 
         $stmt = $this->dbConnection->prepare($sql);
-        $stmt->execute(['user'=>$user]);
+        $stmt->execute(['username'=>$username]);
         $userDb = $stmt->fetch();
 
         if ($userDb) {

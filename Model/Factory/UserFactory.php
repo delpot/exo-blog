@@ -1,6 +1,8 @@
 <?php
 
 require_once(ROOT . '/Model/Entity/User.php');
+require_once(ROOT . "/Service/PasswordHasher.php");
+require_once(ROOT . "/Service/EmailSender.php");
 
 class UserFactory
 {
@@ -10,12 +12,11 @@ class UserFactory
         $user->setUsername($username);
         $user->setEmail($email);
 
-        $options = [
-            'cost' => 12,
-        ];
+        $passwordHasher = new PasswordHasher();
+        $user->setPassword($passwordHasher->hash($password));
 
-        $passwordHash = password_hash($password, PASSWORD_BCRYPT, $options);
-        $user->setPassword($passwordHash);
+        $emailSender = new EmailSender();
+        $emailSender->sendEmail($user->getEmail());
 
         return $user;
     }
@@ -23,7 +24,7 @@ class UserFactory
     public function createUserFromDb(array $userFromDb): User
     {
         $userEntity = new User();
-        $UserEntity->setId($userFromDb['id']);
+        $userEntity->setId($userFromDb['id']);
         $userEntity->setUsername($userFromDb['username']);
         $userEntity->setPassword($userFromDb['password']);
         $userEntity->setEmail($userFromDb['email']);

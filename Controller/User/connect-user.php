@@ -10,13 +10,13 @@ if (!empty($_POST['username']) && !empty($_POST['password'])) {
     
     $userRepository = new UserRepository();
     $user = $userRepository->findByUsername($_POST["username"]);
-    $message = "Vos identifiants ne sont pas valides!";
+    $message = "Invalid details!";
 
     if ($user) {
     
         if (password_verify($_POST['password'], $user->getPassword())) {
     
-            $message = "Vos identifiants sont valides!";
+            $message = "You're logged in!";
         
         }
     
