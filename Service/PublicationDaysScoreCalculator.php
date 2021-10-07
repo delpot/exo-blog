@@ -1,7 +1,7 @@
 <?php
 
 require_once(ROOT . "/Model/Entity/Article.php");
-require_once(ROOT . "/ScoreCalculatorInterface.php");
+require_once(ROOT . "/Service/ScoreCalculatorInterface.php");
 
 class PublicationDaysScoreCalculator implements ScoreCalculatorInterface
 {
