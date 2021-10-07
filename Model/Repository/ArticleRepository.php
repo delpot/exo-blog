@@ -56,12 +56,4 @@ class ArticleRepository
         return $articleEntity;
     }
 
-    public function delete($id)
-    {
-        $sql = "DELETE FROM article where id=:id";
-
-        $stmt = $this->dbConnection->prepare($sql);
-        $stmt->execute(['id'=>$id]);
-    }
-
 }

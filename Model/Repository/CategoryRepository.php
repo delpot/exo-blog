@@ -56,12 +56,4 @@ class CategoryRepository
         return $categoryEntity;
     }
 
-    public function delete($id)
-    {
-        $sql = "DELETE FROM category where id=:id";
-
-        $stmt = $this->dbConnection->prepare($sql);
-        $stmt->execute(['id'=>$id]);
-    }
-
 }

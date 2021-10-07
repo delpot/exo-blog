@@ -1,8 +1,9 @@
 <?php
 
 require_once(ROOT . "/Model/Entity/Publishable.php");
+require_once(ROOT . "/Model/Repository/EntityInterface.php");
 
-class Category extends Publishable
+class Category extends Publishable implements EntityInterface
 {
     private string $color;
 

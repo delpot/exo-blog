@@ -1,8 +1,9 @@
 <?php
 
 require_once(ROOT . "/Model/Entity/Publishable.php");
+require_once(ROOT . "/Model/Repository/EntityInterface.php");
 
-class Article extends Publishable
+class Article extends Publishable implements EntityInterface
 {
     private string $content;
 
