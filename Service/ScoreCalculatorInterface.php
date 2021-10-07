@@ -2,7 +2,7 @@
 
 require_once(ROOT . "/Model/Entity/Article.php");
 
-class ScoreCalculatorInterface
+interface ScoreCalculatorInterface
 {
     public function calculateScore(): float;
 }
