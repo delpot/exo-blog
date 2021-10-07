@@ -20,7 +20,7 @@ class PublicationDaysScoreCalculator implements ScoreCalculatorInterface
         ) {
             $articleScore += 2;
         } elseif ($daysSincePublication < 7 &&
-            $lengthContent > 5
+            $daysSincePublication > 5
         ) {
             $articleScore += 1;
         }

@@ -4,7 +4,7 @@ require_once(ROOT . "/Model/Entity/Article.php");
 
 class ArticleScoreCalculator
 {
-    public function calculateScore(Article $article, array $articleScoreCalculators): float
+    public function calculateScore(Article $article, array $articleScoresCalculators): float
     {
         $articleScore = 0;
 

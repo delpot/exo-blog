@@ -22,7 +22,7 @@ if (isset($_GET['id'])) {
 
     $articleScoreCalculator = new ArticleScoreCalculator();
 
-    $articleScore = $articleScoreCalculator->calculateScore($article, $scoresCalculatorsClasses);
+    $articleScore = $articleScoreCalculator->calculateScore($articleId, $scoresCalculatorsClasses);
 }
 
 require_once(ROOT . '/View/Article/articleView.php');
