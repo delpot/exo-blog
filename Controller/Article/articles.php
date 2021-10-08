@@ -9,4 +9,7 @@ require_once(ROOT . '/Model/Repository/ArticleRepository.php');
 $articleRepository = new ArticleRepository();
 $articlesView = $articleRepository->findAll();
 
-require_once(ROOT . '/View/Article/articlesView.php');
+// require_once(ROOT . '/View/Article/articlesView.php');
+echo $twig->render('Article/articles.html.twig', [
+    'articlesView'=>$articlesView
+]);

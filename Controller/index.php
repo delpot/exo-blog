@@ -39,7 +39,11 @@
                 $categoryRepository = new CategoryRepository();
                 $categories = $categoryRepository->findLasts(3);
 
-                require_once(ROOT . '/View/Category/homeCategoryView.php');
+                // require_once(ROOT . '/View/Category/homeCategoryView.php');
+                echo $twig->render('Category/home.html.twig', [
+                    'categories'=>$categories
+                ]);
+
             ?>
         </section>
 
@@ -56,7 +60,10 @@
                 $articleRepository = new ArticleRepository();
                 $articles = $articleRepository->findLasts(3);
         
-                require_once(ROOT . '/View/Article/homeArticleView.php');
+                // require_once(ROOT . '/View/Article/homeArticleView.php');
+                echo $twig->render('Article/home.html.twig', [
+                    'articles'=>$articles
+                ]);
 
             ?>
         </section>

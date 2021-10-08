@@ -14,7 +14,7 @@ $articleRepository = new ArticleRepository();
 
 if (isset($_GET['id'])) {
 
-    $articleId = $articleRepository->find($_GET['id']);
+    $article = $articleRepository->find($_GET['id']);
 
     $scoresCalculatorsClasses = [];
     $scoresCalculatorsClasses[] = new ArticleLengthScoreCalculator();
@@ -22,7 +22,11 @@ if (isset($_GET['id'])) {
 
     $articleScoreCalculator = new ArticleScoreCalculator();
 
-    $articleScore = $articleScoreCalculator->calculateScore($articleId, $scoresCalculatorsClasses);
+    $articleScore = $articleScoreCalculator->calculateScore($article, $scoresCalculatorsClasses);
 }
 
-require_once(ROOT . '/View/Article/articleView.php');
+// require_once(ROOT . '/View/Article/articleView.php');
+echo $twig->render('Article/article.html.twig', [
+    'article'=>$article,
+    'articleScore'=>$articleScore
+]);

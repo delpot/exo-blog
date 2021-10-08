@@ -11,4 +11,7 @@ require_once(ROOT . '/Model/Repository/ArticleRepository.php');
 $articleRepository = new ArticleRepository();
 $articles = $articleRepository->findLasts(3);
 
-require_once(ROOT . '/View/Article/homeArticleView.php');
+// require_once(ROOT . '/View/Article/homeArticleView.php');
+echo $twig->render('Article/home.html.twig', [
+    'articles'=>$articles
+]);

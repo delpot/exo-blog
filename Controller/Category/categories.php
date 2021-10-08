@@ -9,4 +9,7 @@ require_once(ROOT . '/Model/Repository/CategoryRepository.php');
 $categoryRepository = new CategoryRepository();
 $categoriesView = $categoryRepository->findAll();
 
-require_once(ROOT . '/View/Category/categoriesView.php');
+// require_once(ROOT . '/View/Category/categoriesView.php');
+echo $twig->render('Category/categories.html.twig', [
+    'categoriesView'=>$categoriesView
+]);

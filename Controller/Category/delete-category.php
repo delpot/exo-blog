@@ -9,9 +9,16 @@ require_once(ROOT . "/Model/EntityManager.php");
 $categoryRepository = new CategoryRepository();
 $entityManager = new EntityManager();
 
+$message = "";
+
 if (isset($_GET['id'])) {
     $category = $categoryRepository->find($_GET['id']);
     $entityManager->delete($category);
+
+    $message = "Successfully deleted!";
 }
 
-require_once(ROOT . '/View/Category/delete-categoryView.php');
+// require_once(ROOT . '/View/Category/delete-categoryView.php');
+echo $twig->render('Category/delete-category.html.twig', [
+    "message" => $message,
+]);

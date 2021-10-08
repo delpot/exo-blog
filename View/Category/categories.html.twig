@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Categories</title>
+
+    <link rel="stylesheet" href="../../Style/style.css">
+
+</head>
+
+<body>
+
+    <h2>Categories</h2>
+
+    <div class="add">
+        <li><a href="./create-category.php">Add a new category &#8594;</a></li>
+    </div>
+
+    <div class="container">
+        {% for category in categoriesView %}
+            <div class="child">
+                <h3><font color={{ category.color }}>{{ category.title }}</font></h3>
+                <li><a href="./category.php?id={{ category.id }}">See</a></li>
+                <li><a href="./delete-category.php?id={{ category.id }}">Delete</a></li>
+            </div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>

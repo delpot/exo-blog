@@ -6,7 +6,9 @@ require_once('../../Config/config.php');
 
 require_once(ROOT . '/Model/EntityManager.php');
 require_once(ROOT . '/Model/Factory/CategoryFactory.php');
-require_once(ROOT . '/View/Category/create-categoryView.php');
+// require_once(ROOT . '/View/Category/create-categoryView.php');
+
+$message = "";
 
 if (!empty($_POST['title']) && !empty($_POST['color'])) {
     $categoryFactory = new CategoryFactory();
@@ -15,5 +17,9 @@ if (!empty($_POST['title']) && !empty($_POST['color'])) {
     $entityManager = new EntityManager();
     $entityManager->persistCategory($category);
 
-    echo "Catégorie créée!";
+    $message = "Successfully created!";
 }
+
+echo $twig->render('Category/create-category.html.twig', [
+    "message" => $message,
+]);

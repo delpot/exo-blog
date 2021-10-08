@@ -10,4 +10,7 @@ require_once(ROOT . '/Model/Repository/CategoryRepository.php');
 $categoryRepository = new CategoryRepository();
 $categories = $categoryRepository->findLasts(3);
 
-require_once(ROOT . '/View/Category/homeCategoryView.php');
+// require_once(ROOT . '/View/Category/homeCategoryView.php');
+echo $twig->render('Category/home.html.twig', [
+    'categories'=>$categories
+]);
