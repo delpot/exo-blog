@@ -3,12 +3,12 @@
 require_once(ROOT . "/Model/Repository/UserRepository.php");
 require_once(ROOT . "PasswordHasherInterface.php")
 
-class PasswordHasher implements PasswordHasherInterface
+class StrongPasswordHasher implements PasswordHasherInterface
 {
     public function hashPassword($password): string
     {
         $options = [
-            'cost' => 12,
+            'cost' => 15,
         ];
 
         return password_hash($password, PASSWORD_BCRYPT, $options);

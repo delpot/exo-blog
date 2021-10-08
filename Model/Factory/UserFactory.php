@@ -6,14 +6,13 @@ require_once(ROOT . "/Service/EmailSender.php");
 
 class UserFactory
 {
-    public function createUser(string $username, string $password, string $email): User
+    public function createUser(string $username, string $password, string $email, PasswordHasherInterface $passwordHasher): User
     {
         $user = new User();
         $user->setUsername($username);
         $user->setEmail($email);
 
-        $passwordHasher = new PasswordHasher();
-        $user->setPassword($passwordHasher->hash($password));
+        $user->setPassword($passwordHasher->hashPassword($password));
 
         $emailSender = new EmailSender();
         $emailSender->sendEmail($user->getEmail());
